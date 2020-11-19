@@ -1,13 +1,12 @@
+import React from 'react';
+import MainLayout from './components/layout/MainLayout/MainLayout';
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-         ss
-        </p>
-      </header>
+    <div>
+      <MainLayout />
     </div>
   );
 }
