@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Fragment }  from 'react';
 import MainLayout from './components/layout/MainLayout/MainLayout';
 
 import './App.css';
 
 function App() {
   return (
-    <div>
+    <Fragment>
       <MainLayout />
-    </div>
+    </Fragment>
   );
 }
 

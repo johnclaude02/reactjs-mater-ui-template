@@ -4,7 +4,11 @@ const drawerWidth = 240;
 
 export default makeStyles(theme => ({
   root: {
+    // display: 'grid',
+    // height: '100vh',
     display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -57,9 +61,5 @@ export default makeStyles(theme => ({
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
   },
 }));
