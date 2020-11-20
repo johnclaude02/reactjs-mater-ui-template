@@ -6,12 +6,16 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from '../Header/Header';
 import SideBar from '../Sidebar/Sidebar';
 import Content from '../Content/Content';
+import Footer from '../Footer/Footer';
 
 import useStyles from './styles';
+import useContentStyles from '../Content/styles';
 
 const MainLayout = () => {
     const classes = useStyles();
+    const contentClasses = useContentStyles();
     const theme = useTheme();
+
     const [open, setOpen] = useState(true);
 
     const toggleDrawer = () => setOpen(!open);
@@ -33,10 +37,17 @@ const MainLayout = () => {
           theme={theme}
         />
 
-        <Content
-          open={open}
-          classes={classes}
-        />
+        
+        <main
+          className={`
+            ${contentClasses.content} 
+            ${open ? contentClasses.shorterContent : contentClasses.longerContent}`
+          }
+        >
+          <Content />
+          
+          <Footer />
+        </main>
       </div>
     );
 };

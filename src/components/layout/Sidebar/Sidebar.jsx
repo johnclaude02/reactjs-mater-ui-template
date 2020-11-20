@@ -91,7 +91,7 @@ const SideBar = ({ open, toggleDrawer, theme }) => {
           <ListItemIcon>
             <PeopleOutlineIcon />
           </ListItemIcon>
-          <ListItemText primary="UsersUsersUsersUsersUsersUsersUsersUsersUsers" />
+          <ListItemText primary="Users" />
           {menuOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Collapse in={menuOpen} timeout="auto" unmountOnExit>

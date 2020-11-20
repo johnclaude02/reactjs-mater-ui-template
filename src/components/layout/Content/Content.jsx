@@ -1,20 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import Typography from '@material-ui/core/Typography';
-import Footer from '../Footer/Footer';
 
 import useStyles from './styles';
 
-const Content = ({ open, classes: propClasses }) => {
+const Content = () => {
   const classes = useStyles();
 
   return (
-    <main
-      className={`
-        ${classes.content} 
-        ${open ? classes.shorterContent : classes.longerContent}`
-      }
-    >
+    <Fragment>
       <div className={classes.toolbar} />
       <Typography paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -72,9 +66,7 @@ const Content = ({ open, classes: propClasses }) => {
         nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
         accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
       </Typography>
-      
-      <Footer />
-    </main>
+    </Fragment>
   );
 };
 
