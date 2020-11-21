@@ -4,17 +4,21 @@ import {
   Switch,
 } from 'react-router-dom';
 
+import { ThemeProvider } from '@material-ui/core/styles'
+
 import MainLayout from './components/layout/MainLayout/MainLayout';
 
-import './App.css';
+import theme from  './components/GlobalStyle';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <MainLayout />
-      </Switch>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Switch>
+          <MainLayout />
+        </Switch>
+      </Router>
+    </ThemeProvider>
   );
 }
 
