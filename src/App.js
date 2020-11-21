@@ -1,13 +1,20 @@
-import React, { Fragment }  from 'react';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+} from 'react-router-dom';
+
 import MainLayout from './components/layout/MainLayout/MainLayout';
 
 import './App.css';
 
 function App() {
   return (
-    <Fragment>
-      <MainLayout />
-    </Fragment>
+    <Router>
+      <Switch>
+        <MainLayout />
+      </Switch>
+    </Router>
   );
 }
 

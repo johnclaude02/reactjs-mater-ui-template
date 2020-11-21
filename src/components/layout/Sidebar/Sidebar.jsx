@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { Link, useLocation } from "react-router-dom";
 
 import clsx from 'clsx';
 import Typography from '@material-ui/core/Typography';
@@ -12,18 +13,21 @@ import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 
+import Icon from '@material-ui/core/Icon';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import PeopleOutlineIcon from '@material-ui/icons/PeopleOutline';
-import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 
 import useStyles from './styles';
+
+import { navigation } from './_nav';
 
 const SideBar = ({ open, toggleDrawer, theme }) => {
   const classes = useStyles();
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   const handleClick = () => {
     setMenuOpen(!menuOpen);
@@ -79,14 +83,44 @@ const SideBar = ({ open, toggleDrawer, theme }) => {
             }
           </ListSubheader>
         }
-        className={open && classes.navList}
+        className={open ? classes.navList : ''}
       >
-        <ListItem button>
-          <ListItemIcon>
-            <AssignmentIndIcon />
-          </ListItemIcon>
-          <ListItemText primary="Profile" />
-        </ListItem>
+
+        {navigation.map((navItem, index) => (
+          <Link key={index} to={navItem.to || location.pathname}>
+            {console.log("navItem :", navItem)}
+            <ListItem button>
+              <ListItemIcon>
+                <Icon component={navItem.icon} />
+              </ListItemIcon>
+              <ListItemText primary={navItem.label} />
+              {navItem.children && navItem.children.length > 0 && (
+                menuOpen ? <ExpandLess /> : <ExpandMore />
+              )}
+            </ListItem>
+
+            {/* {navItem.children.length > 0 (
+                <Collapse in={menuOpen} timeout="auto" unmountOnExit>
+                  {navItem.children.map((subItem, index) => (
+                    <List
+                      component="div"
+                      disablePadding
+                      key={index}
+                    >
+                      <ListItem
+                        button
+                        alignItems="center"
+                        className={classes.listItem}
+                      >
+                        <ListItemText primary={subItem.label} />
+                      </ListItem>
+                    </List>
+                  ))}
+                </Collapse>
+              )} */}
+          </Link>
+        ))}
+
         <ListItem button onClick={handleClick}>
           <ListItemIcon>
             <PeopleOutlineIcon />
@@ -100,7 +134,13 @@ const SideBar = ({ open, toggleDrawer, theme }) => {
               <ListItemText primary="Starred" />
             </ListItem>
           </List>
+          <List component="div" disablePadding>
+            <ListItem alignItems="center" button className={classes.listItem}>
+              <ListItemText primary="Starred" />
+            </ListItem>
+          </List>
         </Collapse>
+
       </List>
     </Drawer>
   );
