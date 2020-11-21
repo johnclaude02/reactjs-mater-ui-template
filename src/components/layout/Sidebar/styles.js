@@ -17,6 +17,7 @@ export default makeStyles(theme => ({
   },
   drawerOpen: {
     width: drawerWidth,
+    overflowY: 'hidden',
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -27,7 +28,7 @@ export default makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    overflowX: 'hidden',
+    overflowY: 'hidden',
     width: theme.spacing(7) + 1,
     [theme.breakpoints.up('sm')]: {
       width: theme.spacing(9) + 1,
@@ -45,11 +46,17 @@ export default makeStyles(theme => ({
     padding: '20px 0px',
     textAlign: 'center',
     whiteSpace: 'normal',
+    position: 'inherit',
+    overflowY: 'auto',
   },
   brand: {
     left: '20px',
     padding: '10px',
     marginBottom: '0px',
     position: 'absolute',
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'inherit',
   }
 }));

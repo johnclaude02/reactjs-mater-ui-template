@@ -16,6 +16,9 @@ export default makeStyles(theme => ({
     minHeight: '100vh',
     backgroundColor: '#e8e8e84a',
   },
+  container: {
+    minHeight: `calc(100vh - 50px)`,
+  },
   longerContent: {
     width: `calc(100% - 76px)`,
   },

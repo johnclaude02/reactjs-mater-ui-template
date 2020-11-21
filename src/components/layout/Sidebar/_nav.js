@@ -3,12 +3,12 @@ import GroupOutlinedIcon from '@material-ui/icons/GroupOutlined';
 import SettingsRemoteOutlinedIcon from '@material-ui/icons/SettingsRemoteOutlined';
 import TurnedInNotOutlinedIcon from '@material-ui/icons/TurnedInNotOutlined';
 
-export const navigation = [
+const navigation = [
   {
     _tag: 'SidebarNavItem',
     name: 'Dashboard',
     label: 'Dashboard',
-    to: '/',
+    link: '/',
     icon: DashboardOutlinedIcon,
     children: []
   },
@@ -16,7 +16,7 @@ export const navigation = [
     _tag: 'SidebarNavItem',
     name: 'UserManagement',
     label: 'User Management',
-    to: '/user-management',
+    link: '/user-management',
     icon: GroupOutlinedIcon,
     children: []
   },
@@ -24,7 +24,7 @@ export const navigation = [
     _tag: 'SidebarNavItem',
     name: 'OperatorGroup',
     label: 'Operator Group',
-    to: '/operator-group',
+    link: '/operator-group',
     icon: SettingsRemoteOutlinedIcon,
     children: []
   },
@@ -32,21 +32,23 @@ export const navigation = [
     _tag: 'SidebarNavItem',
     name: 'OutletManagement',
     label: 'Outlet Management',
-    to: null,
+    link: "",
     icon: TurnedInNotOutlinedIcon,
     children: [
       {
         _tag: 'SidebarSubNavItem',
         name: 'OutletsList',
         label: 'Outlets',
-        to: '/outlet-management/outlets'
+        link: '/outlet-management/outlets'
       },
       {
         _tag: 'SidebarSubNavItem',
         name: 'TerminalsList',
         label: 'Terminals',
-        to: '/outlet-management/terminals'
+        link: '/outlet-management/terminals'
       }
     ]
   }
 ];
+
+export default navigation;

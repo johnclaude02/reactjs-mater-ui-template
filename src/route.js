@@ -2,8 +2,9 @@ import React from 'react';
 
 const Dashboard = React.lazy(() => import('./components/pages/Dashboard/Dashboard'));
 const UserManagement = React.lazy(() => import('./components/pages/UserManagement/Users'))
-const OperatorGroup = React.lazy(() => import('./components/pages/OperatorGroup/OperatorsList'));
-const OutletManagement = React.lazy(() => import('./components/pages/OutletManagement/OultletsList'));
+const OperatorGroup = React.lazy(() => import('./components/pages/OperatorGroup/Operators'));
+const Outlets = React.lazy(() => import('./components/pages/OutletManagement/Outlets/Outlets'));
+const Terminals = React.lazy(() => import('./components/pages/OutletManagement/Terminals/Terminals'))
 
 const routes = [
   {
@@ -26,12 +27,17 @@ const routes = [
   },
   {
     exact: true,
-    path: '/outlet-management',
-    name: 'OutletManagement',
-    component: OutletManagement
+    path: '/outlet-management/outlets',
+    name: 'Outlets',
+    component: Outlets
   },
   {
     exact: true,
+    path: '/outlet-management/terminals',
+    name: 'Terminals',
+    component: Terminals
+  },
+  {
     path: '*',
     name: '/404',
     component: () => <h1>Not Found.</h1>
