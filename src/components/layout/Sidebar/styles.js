@@ -6,6 +6,7 @@ export default makeStyles(theme => ({
   navList: {
     wordWrap: 'break-word',
     whiteSpace: 'normal',
+    overflowY: 'auto',
   },
   listItem: {
     paddingLeft: theme.spacing(4),
